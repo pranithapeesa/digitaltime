@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Digital clock</title>
+</head>
+
+<body>
+    <div id="clk"></div>
+    <div id="date"></div>
+
+    <script>
+        setInterval(showTime, 1000);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            
+            const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];   
+            let day = days[time.getDay()];
+            let year = time.getFullYear();
+            let month = time.getMonth();
+            let date = time.getDate();
+
+            let currentTime = hour + ":"+ min + ":" + sec ;
+            let currentDate = day + " " + date + "-" + (month+1) + "-" + year;
+            document.getElementById("clk").innerHTML = currentTime;
+            document.getElementById("date").innerHTML = currentDate;
+        }
+
+        showTime();
+    </script>
+</body>
+
+</html> 
